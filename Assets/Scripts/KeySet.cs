@@ -14,13 +14,11 @@ public class KeySet : MonoBehaviour
         left,
         right,
     }
-
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
 
+    }
     // Update is called once per frame
     void Update()
     {
@@ -38,5 +36,4 @@ public class KeySet : MonoBehaviour
     {
         DirUpEvent.Invoke(input);
     }
-
 }

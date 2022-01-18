@@ -22,7 +22,6 @@ public class PadHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             transform.position = ((Vector3)eventData.position - m_back.transform.position).normalized * limit + m_back.transform.position;
         else
             transform.position = eventData.position;
-        //Debug.Log(transform.localPosition.x+"/"+transform.localPosition.y);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -33,8 +32,8 @@ public class PadHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     // Start is called before the first frame update
     void Start()
     {
-        sizeBack = m_back.rectTransform.sizeDelta;
-        sizeImage = m_image.rectTransform.sizeDelta;
+        sizeBack = m_back.rectTransform.rect.size;
+        sizeImage = m_image.rectTransform.rect.size;
         limit = sizeBack.x / 2 - sizeImage.x / 2;
     }
 

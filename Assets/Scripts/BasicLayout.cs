@@ -10,6 +10,7 @@ public class BasicLayout : MonoBehaviour
     protected virtual void Start()
     {
         btn_back.onClick.AddListener(f_btn_Back);
+
     }
 
     // Update is called once per frame
@@ -21,4 +22,5 @@ public class BasicLayout : MonoBehaviour
     {
         SceneManager.LoadScene("StartScene");
     }
+
 }
