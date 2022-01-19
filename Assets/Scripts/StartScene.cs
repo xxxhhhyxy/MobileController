@@ -15,6 +15,7 @@ public class StartScene : MonoBehaviour
         XBox=2,
         Switch=3,
     }
+    public Button btn_Back;
     public TMP_Dropdown dp_Layout;
     public Toggle tg_UDPOrTCP;
     public Toggle tg_ClientOrServer;
@@ -23,6 +24,7 @@ public class StartScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         dp_Layout.options.Clear();        
         for(int i=0;i<Enum.GetValues(typeof(Layout)).Length ;i++ )
         {
@@ -30,13 +32,15 @@ public class StartScene : MonoBehaviour
         }
         tg_UDPOrTCP.onValueChanged.AddListener(f_tg_UDPOrTCP);
         tg_ClientOrServer.onValueChanged.AddListener(f_tg_ClientOrServer);
+        btn_Back.onClick.AddListener(f_btn_back);
         Screen.autorotateToPortrait = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyUp(KeyCode.Escape))
+            Application.Quit();
     }
     private void f_tg_UDPOrTCP(bool input)
     {
@@ -69,5 +73,9 @@ public class StartScene : MonoBehaviour
             default:
                 break;
         }
+    }
+    private void f_btn_back()
+    {
+        Application.Quit();
     }
 }
